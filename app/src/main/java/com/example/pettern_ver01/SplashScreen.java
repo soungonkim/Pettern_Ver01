@@ -17,15 +17,12 @@ public class SplashScreen extends AppCompatActivity {
         EasySplashScreen config = new EasySplashScreen(SplashScreen.this)
                 .withFullScreen()
                 .withTargetActivity(MainActivity.class)
-                .withSplashTimeOut(5000)
+                .withSplashTimeOut(2000)
                 .withBackgroundColor(Color.parseColor("#ffffff"))
                 .withLogo(R.mipmap.petternlogo)
-                .withHeaderText("Welcome Guest!")
-                .withFooterText("Copyright 2019")
+
                 .withAfterLogoText("Hardware, DB Testing 1.0");
 
-        config.getHeaderTextView().setTextColor(Color.BLUE);
-        config.getFooterTextView().setTextColor(Color.BLUE);
         config.getAfterLogoTextView().setTextColor(Color.BLUE);
 
         View view = config.create();

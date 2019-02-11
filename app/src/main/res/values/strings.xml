@@ -11,4 +11,5 @@
     <string name="not_having_account">Not Having an Account?</string>
     <string name="sign_up">Sign Up</string>
     <string name="logout">Logout</string>
+    <string name="splashtext">Hardware/DB Testing 0.1</string>
 </resources>
