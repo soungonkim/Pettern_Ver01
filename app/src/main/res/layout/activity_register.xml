@@ -22,23 +22,25 @@
         android:textStyle="bold" />
 
 
+
+
     <EditText
-        android:id="@+id/etFullName"
+        android:id="@+id/etUserEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:background="@android:color/white"
-        android:hint="@string/full_name"
-        android:inputType="textPersonName"
+        android:hint="@string/useremail"
+        android:inputType="textEmailAddress"
         android:padding="10dp" />
 
     <EditText
-        android:id="@+id/etUsername"
+        android:id="@+id/etUserName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:background="@android:color/white"
-        android:hint="@string/username"
+        android:hint="@string/user_name"
         android:inputType="textPersonName"
         android:padding="10dp" />
 

@@ -17,13 +17,13 @@
         android:src="@mipmap/petternlogo" />
 
     <EditText
-        android:id="@+id/etLoginUsername"
+        android:id="@+id/etLoginUseremail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:background="@android:color/white"
-        android:hint="@string/username"
-        android:inputType="textPersonName"
+        android:hint="@string/useremail"
+        android:inputType="textEmailAddress"
         android:padding="10dp" />
 
 

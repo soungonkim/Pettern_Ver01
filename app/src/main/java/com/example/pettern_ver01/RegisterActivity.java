@@ -20,20 +20,20 @@ import org.json.JSONObject;
 public class RegisterActivity extends AppCompatActivity {
     private static final String KEY_STATUS = "status";
     private static final String KEY_MESSAGE = "message";
-    private static final String KEY_FULL_NAME = "full_name";
-    private static final String KEY_USERNAME = "username";
+    private static final String KEY_USER_NAME = "user_name";
+    private static final String KEY_USER_EMAIL = "user_email";
     private static final String KEY_PASSWORD = "password";
     private static final String KEY_EMPTY = "";
-    private EditText etUsername;
+    private EditText etUserEmail;
     private EditText etPassword;
     private EditText etConfirmPassword;
-    private EditText etFullName;
-    private String username;
+    private EditText etUserName;
+    private String user_email;
     private String password;
     private String confirmPassword;
-    private String fullName;
+    private String user_name;
     private ProgressDialog pDialog;
-    private String register_url = "http://192.168.0.13/members/register.php";
+    private String register_url = "http://192.168.0.13/apptest1/register.php";
     private SessionHandler session;
 
     @Override
@@ -42,10 +42,10 @@ public class RegisterActivity extends AppCompatActivity {
         session = new SessionHandler(getApplicationContext());
         setContentView(R.layout.activity_register);
 
-        etUsername = findViewById(R.id.etUsername);
+        etUserEmail = findViewById(R.id.etUserEmail);
         etPassword = findViewById(R.id.etPassword);
         etConfirmPassword = findViewById(R.id.etConfirmPassword);
-        etFullName = findViewById(R.id.etFullName);
+        etUserName = findViewById(R.id.etUserName);
 
         Button login = findViewById(R.id.btnRegisterLogin);
         Button register = findViewById(R.id.btnRegister);
@@ -64,10 +64,10 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Retrieve the data entered in the edit texts
-                username = etUsername.getText().toString().toLowerCase().trim();
+                user_email = etUserEmail.getText().toString().toLowerCase().trim();
                 password = etPassword.getText().toString().trim();
                 confirmPassword = etConfirmPassword.getText().toString().trim();
-                fullName = etFullName.getText().toString().trim();
+                user_name = etUserName.getText().toString().trim();
                 if (validateInputs()) {
                     registerUser();
                 }
@@ -104,9 +104,9 @@ public class RegisterActivity extends AppCompatActivity {
         JSONObject request = new JSONObject();
         try {
             //Populate the request parameters
-            request.put(KEY_USERNAME, username);
+            request.put(KEY_USER_EMAIL, user_email);
             request.put(KEY_PASSWORD, password);
-            request.put(KEY_FULL_NAME, fullName);
+            request.put(KEY_USER_NAME, user_name);
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -120,13 +120,13 @@ public class RegisterActivity extends AppCompatActivity {
                             //Check if user got registered successfully
                             if (response.getInt(KEY_STATUS) == 0) {
                                 //Set the user session
-                                session.loginUser(username,fullName);
+                                session.loginUser(user_email,user_name);
                                 loadDashboard();
 
                             }else if(response.getInt(KEY_STATUS) == 1){
                                 //Display error message if username is already existsing
-                                etUsername.setError("Username already taken!");
-                                etUsername.requestFocus();
+                                etUserEmail.setError("Username already taken!");
+                                etUserEmail.requestFocus();
 
                             }else{
                                 Toast.makeText(getApplicationContext(),
@@ -159,15 +159,15 @@ public class RegisterActivity extends AppCompatActivity {
      * @return
      */
     private boolean validateInputs() {
-        if (KEY_EMPTY.equals(fullName)) {
-            etFullName.setError("Full Name cannot be empty");
-            etFullName.requestFocus();
+        if (KEY_EMPTY.equals(user_name)) {
+            etUserName.setError("Full Name cannot be empty");
+            etUserName.requestFocus();
             return false;
 
         }
-        if (KEY_EMPTY.equals(username)) {
-            etUsername.setError("Username cannot be empty");
-            etUsername.requestFocus();
+        if (KEY_EMPTY.equals(user_email)) {
+            etUserEmail.setError("Username cannot be empty");
+            etUserEmail.requestFocus();
             return false;
         }
         if (KEY_EMPTY.equals(password)) {

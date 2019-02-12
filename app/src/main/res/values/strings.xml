@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">Pettern_Ver0.1</string>
-    <string name="username">Username</string>
+    <string name="useremail">User Email</string>
     <string name="password">Password</string>
     <string name="sign_in">Sign In</string>
     <string name="register">Register</string>
-    <string name="full_name">Full Name</string>
+    <string name="user_name">User Name</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="already_having_account">Already Having an Account?</string>
     <string name="log_in">Log In</string>
