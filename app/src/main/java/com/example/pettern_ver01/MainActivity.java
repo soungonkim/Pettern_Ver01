@@ -20,13 +20,13 @@ import org.json.JSONObject;
 public class MainActivity extends AppCompatActivity {
     private static final String KEY_STATUS = "status";
     private static final String KEY_MESSAGE = "message";
-    private static final String KEY_USER_NAME = "user_name";
-    private static final String KEY_USER_EMAIL = "user_email";
+    private static final String KEY_FULL_NAME = "full_name";
+    private static final String KEY_USERNAME = "username";
     private static final String KEY_PASSWORD = "password";
     private static final String KEY_EMPTY = "";
-    private EditText etUseremail;
+    private EditText etUsername;
     private EditText etPassword;
-    private String useremail;
+    private String username;
     private String password;
     private ProgressDialog pDialog;
     private String login_url = "http://192.168.0.13/apptest1/login.php";
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         }
         setContentView(R.layout.activity_main);
 
-        etUseremail = findViewById(R.id.etLoginUseremail);
+        etUsername = findViewById(R.id.etLoginUsername);
         etPassword = findViewById(R.id.etLoginPassword);
 
         Button register = findViewById(R.id.btnLoginRegister);
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Retrieve the data entered in the edit texts
-                useremail = etUseremail.getText().toString().toLowerCase().trim();
+                username = etUsername.getText().toString().toLowerCase().trim();
                 password = etPassword.getText().toString().trim();
                 if (validateInputs()) {
                     login();
@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         JSONObject request = new JSONObject();
         try {
             //Populate the request parameters
-            request.put(KEY_USER_EMAIL, useremail);
+            request.put(KEY_USERNAME, username);
             request.put(KEY_PASSWORD, password);
 
         } catch (JSONException e) {
@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
                             //Check if user got logged in successfully
 
                             if (response.getInt(KEY_STATUS) == 0) {
-                                session.loginUser(useremail,response.getString(KEY_USER_NAME));
+                                session.loginUser(username,response.getString(KEY_FULL_NAME));
                                 loadDashboard();
 
                             }else{
@@ -148,9 +148,9 @@ public class MainActivity extends AppCompatActivity {
      * @return
      */
     private boolean validateInputs() {
-        if(KEY_EMPTY.equals(useremail)){
-            etUseremail.setError("Username cannot be empty");
-            etUseremail.requestFocus();
+        if(KEY_EMPTY.equals(username)){
+            etUsername.setError("Username cannot be empty");
+            etUsername.requestFocus();
             return false;
         }
         if(KEY_EMPTY.equals(password)){
