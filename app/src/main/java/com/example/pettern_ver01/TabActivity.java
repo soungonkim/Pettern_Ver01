@@ -14,14 +14,14 @@ public class TabActivity extends AppCompatActivity implements BottomNavigationVi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-      //  setContentView(R.layout.activity_main);
+        //  setContentView(R.layout.activity_main);
         setContentView(R.layout.activity_tab);
 
         //loading the default fragment
         loadFragment(new HomeFragment());
 
         //getting bottom navigation view and attaching the listener
-        BottomNavigationView navigation =  findViewById(R.id.navigation);
+        BottomNavigationView navigation = findViewById(R.id.navigation);
         System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@");
         System.out.println(navigation);
 

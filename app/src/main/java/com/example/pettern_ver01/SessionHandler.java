@@ -83,7 +83,7 @@ public class SessionHandler {
     /**
      * Logs out user by clearing the session
      */
-    public void logoutUser(){
+    public void logoutUser() {
         mEditor.clear();
         mEditor.commit();
     }

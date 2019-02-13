@@ -122,15 +122,15 @@ public class RegisterActivity extends AppCompatActivity {
                             //Check if user got registered successfully
                             if (response.getInt(KEY_STATUS) == 0) {
                                 //Set the user session
-                                session.loginUser(username,fullName);
+                                session.loginUser(username, fullName);
                                 loadTab();
 
-                            }else if(response.getInt(KEY_STATUS) == 1){
+                            } else if (response.getInt(KEY_STATUS) == 1) {
                                 //Display error message if username is already existsing
                                 etUsername.setError("Username already taken!");
                                 etUsername.requestFocus();
 
-                            }else{
+                            } else {
                                 Toast.makeText(getApplicationContext(),
                                         response.getString(KEY_MESSAGE), Toast.LENGTH_SHORT).show();
 
@@ -158,6 +158,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     /**
      * Validates inputs and shows error if any
+     *
      * @return
      */
     private boolean validateInputs() {

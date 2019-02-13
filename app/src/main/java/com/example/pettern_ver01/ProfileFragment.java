@@ -23,7 +23,7 @@ public class ProfileFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //just change the fragment_dashboard
         //with the fragment you want to inflate
         //like if the class is HomeFragment it should have R.layout.home_fragment
@@ -31,16 +31,12 @@ public class ProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         session = new SessionHandler(getActivity().getApplicationContext());
         User user = session.getUserDetails();
-        TextView welcomeText =  view.findViewById(R.id.welcomeText);
-        System.out.println("@@@@@@@@@@@@@@@@ txt @@@@@@@@@@@@@");
-        System.out.println(welcomeText);
-        System.out.println(user.getFullName());
-        welcomeText.setText("Welcome "+user.getFullName()+", your session will expire on "+user.getSessionExpiryDate());
+        TextView welcomeText = view.findViewById(R.id.welcomeText);
+
+        welcomeText.setText("Welcome " + user.getFullName() + ", your session will expire on " + user.getSessionExpiryDate());
 
         Button logoutBtn = view.findViewById(R.id.btnLogout);
-        System.out.println("@@@@@@@@@@@@@@@@ btn @@@@@@@@@@@@@");
-        System.out.println(logoutBtn);
-        System.out.println(getActivity());
+
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

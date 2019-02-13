@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         session = new SessionHandler(getApplicationContext());
 
-        if(session.isLoggedIn()){
+        if (session.isLoggedIn()) {
             loadTab();
         }
         setContentView(R.layout.activity_main);
@@ -114,10 +114,10 @@ public class MainActivity extends AppCompatActivity {
                             //Check if user got logged in successfully
 
                             if (response.getInt(KEY_STATUS) == 0) {
-                                session.loginUser(username,response.getString(KEY_FULL_NAME));
+                                session.loginUser(username, response.getString(KEY_FULL_NAME));
                                 loadTab();
 
-                            }else{
+                            } else {
                                 Toast.makeText(getApplicationContext(),
                                         response.getString(KEY_MESSAGE), Toast.LENGTH_SHORT).show();
 
@@ -145,15 +145,16 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Validates inputs and shows error if any
+     *
      * @return
      */
     private boolean validateInputs() {
-        if(KEY_EMPTY.equals(username)){
+        if (KEY_EMPTY.equals(username)) {
             etUsername.setError("Username cannot be empty");
             etUsername.requestFocus();
             return false;
         }
-        if(KEY_EMPTY.equals(password)){
+        if (KEY_EMPTY.equals(password)) {
             etPassword.setError("Password cannot be empty");
             etPassword.requestFocus();
             return false;
