@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LoginAndRegistration</string>
+    <string name="app_name">Pettern_Ver0.1</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="sign_in">Sign In</string>
@@ -11,4 +11,12 @@
     <string name="not_having_account">Not Having an Account?</string>
     <string name="sign_up">Sign Up</string>
     <string name="logout">Logout</string>
+    <string name="title_activity_tab">TabActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_home">Home</string>
+    <string name="title_health">Health</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_profile">Profile</string>
 </resources>

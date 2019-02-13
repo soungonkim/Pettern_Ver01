@@ -33,7 +33,7 @@ public class RegisterActivity extends AppCompatActivity {
     private String confirmPassword;
     private String fullName;
     private ProgressDialog pDialog;
-    private String register_url = "http://192.168.0.13/apptest1/register.php";
+    private String register_url = "http://211.206.115.80/apptest1/register.php";
     private SessionHandler session;
 
     @Override
@@ -111,6 +111,8 @@ public class RegisterActivity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.println(request);
         JsonObjectRequest jsArrayRequest = new JsonObjectRequest
                 (Request.Method.POST, register_url, request, new Response.Listener<JSONObject>() {
                     @Override
