@@ -90,10 +90,10 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     /**
-     * Launch Dashboard Activity on Successful Sign Up
+     * Launch Tab Activity on Successful Sign Up
      */
-    private void loadDashboard() {
-        Intent i = new Intent(getApplicationContext(), DashboardActivity.class);
+    private void loadTab() {
+        Intent i = new Intent(getApplicationContext(), TabActivity.class);
         startActivity(i);
         finish();
 
@@ -123,7 +123,7 @@ public class RegisterActivity extends AppCompatActivity {
                             if (response.getInt(KEY_STATUS) == 0) {
                                 //Set the user session
                                 session.loginUser(username,fullName);
-                                loadDashboard();
+                                loadTab();
 
                             }else if(response.getInt(KEY_STATUS) == 1){
                                 //Display error message if username is already existsing

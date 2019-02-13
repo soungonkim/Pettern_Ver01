@@ -1,6 +1,5 @@
 package com.example.pettern_ver01;
 
-
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -15,16 +14,19 @@ public class TabActivity extends AppCompatActivity implements BottomNavigationVi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+      //  setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_tab);
 
         //loading the default fragment
         loadFragment(new HomeFragment());
 
         //getting bottom navigation view and attaching the listener
-        BottomNavigationView navigation = findViewById(R.id.navigation);
+        BottomNavigationView navigation =  findViewById(R.id.navigation);
+        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+        System.out.println(navigation);
+
         navigation.setOnNavigationItemSelectedListener(this);
     }
-
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {

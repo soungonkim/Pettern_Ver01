@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         session = new SessionHandler(getApplicationContext());
 
         if(session.isLoggedIn()){
-            loadDashboard();
+            loadTab();
         }
         setContentView(R.layout.activity_main);
 
@@ -72,10 +72,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Launch Dashboard Activity on Successful Login
+     * Launch Tab Activity on Successful Login
      */
-    private void loadDashboard() {
-        Intent i = new Intent(getApplicationContext(), DashboardActivity.class);
+    private void loadTab() {
+        Intent i = new Intent(getApplicationContext(), TabActivity.class);
         startActivity(i);
         finish();
 
@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
 
                             if (response.getInt(KEY_STATUS) == 0) {
                                 session.loginUser(username,response.getString(KEY_FULL_NAME));
-                                loadDashboard();
+                                loadTab();
 
                             }else{
                                 Toast.makeText(getApplicationContext(),

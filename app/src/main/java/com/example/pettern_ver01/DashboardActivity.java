@@ -16,11 +16,11 @@ public class DashboardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
         session = new SessionHandler(getApplicationContext());
         User user = session.getUserDetails();
-        TextView welcomeText = findViewById(R.id.welcomeText);
+        TextView welcomeText = findViewById(R.id.welcomeTextd);
 
         welcomeText.setText("Welcome "+user.getFullName()+", your session will expire on "+user.getSessionExpiryDate());
 
-        Button logoutBtn = findViewById(R.id.btnLogout);
+        Button logoutBtn = findViewById(R.id.btnLogoutd);
 
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
