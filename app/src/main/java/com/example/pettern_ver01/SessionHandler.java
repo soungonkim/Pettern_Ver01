@@ -32,8 +32,8 @@ public class SessionHandler {
         mEditor.putString(KEY_FULL_NAME, fullName);
         Date date = new Date();
 
-        //Set user session for next 7 days
-        long millis = date.getTime() + (7 * 24 * 60 * 60 * 1000);
+        //Set user session for next 365 days
+        long millis = date.getTime() + (365 * 24 * 60 * 60 * 1000);
         mEditor.putLong(KEY_EXPIRES, millis);
         mEditor.commit();
     }

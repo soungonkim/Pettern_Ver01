@@ -47,10 +47,6 @@ public class ProfileFragment extends Fragment {
 
             }
         });
-
-     //   Button
-
-
         return view;
 
 
