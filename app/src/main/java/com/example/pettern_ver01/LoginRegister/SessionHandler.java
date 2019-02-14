@@ -1,7 +1,9 @@
-package com.example.pettern_ver01;
+package com.example.pettern_ver01.LoginRegister;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+
+import com.example.pettern_ver01.User;
 
 import java.util.Date;
 

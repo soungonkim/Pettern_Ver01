@@ -7,6 +7,11 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
+import com.example.pettern_ver01.Fragments.DashboardFragment.DashboardFragment;
+import com.example.pettern_ver01.Fragments.HealthFragment.HealthFragment;
+import com.example.pettern_ver01.Fragments.HomeFragment.HomeFragment;
+import com.example.pettern_ver01.Fragments.ProfileFragment.ProfileFragment;
+
 //implement the interface OnNavigationItemSelectedListener in your activity class
 public class TabActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 

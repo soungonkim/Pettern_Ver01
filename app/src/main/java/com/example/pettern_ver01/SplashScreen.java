@@ -1,10 +1,10 @@
 package com.example.pettern_ver01;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
+
+import com.example.pettern_ver01.LoginRegister.MainActivity;
 
 
 public class SplashScreen extends AppCompatActivity {

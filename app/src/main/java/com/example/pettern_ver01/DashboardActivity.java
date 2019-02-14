@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.pettern_ver01.LoginRegister.MainActivity;
+import com.example.pettern_ver01.LoginRegister.SessionHandler;
+
 public class DashboardActivity extends AppCompatActivity {
     private SessionHandler session;
 

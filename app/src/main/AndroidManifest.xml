@@ -3,6 +3,7 @@
     package="com.example.pettern_ver01">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" ></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -14,9 +15,9 @@
         <activity
             android:name=".TabActivity"
             android:label="@string/title_activity_tab"></activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".LoginRegister.MainActivity" />
         <activity android:name=".DashboardActivity" />
-        <activity android:name=".RegisterActivity" />
+        <activity android:name=".LoginRegister.RegisterActivity" />
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -7,7 +7,7 @@
     android:gravity="center_vertical"
     android:orientation="vertical"
     android:padding="50dp"
-    tools:context="com.example.pettern_ver01.RegisterActivity">
+    tools:context="com.example.pettern_ver01.LoginRegister.RegisterActivity">
 
     <TextView
         android:id="@+id/textView"
