@@ -107,7 +107,7 @@ public class AddPetActivity extends AppCompatActivity {
     }
 
     /**
-     * AsyncTask for adding a movie
+     * AsyncTask for adding a pet
      */
     private class AddPetAsyncTask extends AsyncTask<String, String, String> {
         @Override
@@ -158,7 +158,7 @@ public class AddPetActivity extends AppCompatActivity {
                         Toast.makeText(AddPetActivity.this,
                                 "Pet Added", Toast.LENGTH_LONG).show();
                         Intent i = getIntent();
-                        //send result code 20 to notify about movie update
+                        //send result code 20 to notify about pet update
                         setResult(20, i);
                         //Finish ths activity and go back to listing activity
                         finish();
