@@ -61,7 +61,7 @@ public class ProfileFragment extends Fragment {
         });
 
         Button addPetBtn = view.findViewById(R.id.btnAddPet);
-        viewPetBtn.setOnClickListener(new View.OnClickListener(){
+        addPetBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Intent i = new Intent(getActivity(), AddPetActivity.class);

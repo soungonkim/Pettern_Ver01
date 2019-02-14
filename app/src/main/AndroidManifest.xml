@@ -18,6 +18,9 @@
         <activity android:name=".LoginRegister.MainActivity" />
         <activity android:name=".DashboardActivity" />
         <activity android:name=".LoginRegister.RegisterActivity" />
+        <activity android:name=".Fragments.ProfileFragment.AddPetActivity"/>
+        <activity android:name=".Fragments.ProfileFragment.PetListingActivity"/>
+        <activity android:name=".Fragments.ProfileFragment.PetUpdateDeleteActivity"/>
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

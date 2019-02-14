@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.pettern_ver01.LoginRegister.SessionHandler;
+import com.example.pettern_ver01.User;
 import com.example.pettern_ver01.helper.CheckNetworkStatus;
 import com.example.pettern_ver01.R;
 import com.example.pettern_ver01.helper.HttpJsonParser;
@@ -20,6 +22,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AddPetActivity extends AppCompatActivity {
+    private SessionHandler session;
+
+    private static final String KEY_USER_EMAIL = "user_email";
     private static final String KEY_SUCCESS = "success";
     private static final String KEY_PET_NAME = "pet_name";
     private static final String KEY_PET_CHAR = "pet_char";
@@ -52,6 +57,7 @@ public class AddPetActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_pet);
+
         petNameEditText = (EditText) findViewById(R.id.txtPetNameAdd);
         petCharEditText = (EditText) findViewById(R.id.txtPetCharAdd);
         petBreedEditText = (EditText) findViewById(R.id.txtPetBreedAdd);
@@ -100,7 +106,6 @@ public class AddPetActivity extends AppCompatActivity {
             Toast.makeText(AddPetActivity.this,
                     "One or more fields left empty!",
                     Toast.LENGTH_LONG).show();
-
         }
 
 
@@ -125,9 +130,12 @@ public class AddPetActivity extends AppCompatActivity {
         protected String doInBackground(String... params) {
             HttpJsonParser httpJsonParser = new HttpJsonParser();
             System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%httpjsonparser Object made");
+            session = new SessionHandler(getApplicationContext());
+            User user = session.getUserDetails();
 
             Map<String, String> httpParams = new HashMap<>();
             //Populating request parameters
+            httpParams.put(KEY_USER_EMAIL, user.getUsername());
             httpParams.put(KEY_PET_NAME, petName);
             httpParams.put(KEY_PET_CHAR, petChar);
             httpParams.put(KEY_PET_BREED, petBreed);

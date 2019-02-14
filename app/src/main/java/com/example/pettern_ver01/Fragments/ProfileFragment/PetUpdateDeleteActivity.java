@@ -12,7 +12,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 import android.app.AlertDialog;
 
+import com.example.pettern_ver01.LoginRegister.SessionHandler;
 import com.example.pettern_ver01.R;
+import com.example.pettern_ver01.User;
 import com.example.pettern_ver01.helper.CheckNetworkStatus;
 import com.example.pettern_ver01.helper.HttpJsonParser;
 
@@ -23,6 +25,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PetUpdateDeleteActivity extends AppCompatActivity {
+
+    private SessionHandler session;
+
+    private static final String KEY_USER_EMAIL = "user_email";
+
     private static String STRING_EMPTY = "";
     private static final String KEY_SUCCESS = "success";
     private static final String KEY_DATA = "data";
@@ -238,8 +245,6 @@ public class PetUpdateDeleteActivity extends AppCompatActivity {
      * Otherwise displays Toast message informing one or more fields left empty
      */
     private void updatePet() {
-
-
         if (!STRING_EMPTY.equals(petNameEditText.getText().toString()) &&
                 !STRING_EMPTY.equals(petCharEditText.getText().toString()) &&
                 !STRING_EMPTY.equals(petBreedEditText.getText().toString()) &&
@@ -283,8 +288,12 @@ public class PetUpdateDeleteActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... params) {
             HttpJsonParser httpJsonParser = new HttpJsonParser();
+            session = new SessionHandler(getApplicationContext());
+            User user = session.getUserDetails();
             Map<String, String> httpParams = new HashMap<>();
             //Populating request parameters
+
+            httpParams.put(KEY_USER_EMAIL, user.getUsername());
             httpParams.put(KEY_PET_NAME, petName);
             httpParams.put(KEY_PET_CHAR, petChar);
             httpParams.put(KEY_PET_BREED, petBreed);
