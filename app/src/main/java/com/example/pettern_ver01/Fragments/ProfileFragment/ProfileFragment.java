@@ -49,6 +49,15 @@ public class ProfileFragment extends Fragment {
 
             }
         });
+        Button addUserBtn = view.findViewById(R.id.btnUser);
+        addUserBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), UserProfile.class);
+                startActivity(i);
+                getActivity().finish();
+            }
+        });
 
         Button viewPetBtn = view.findViewById(R.id.btnViewPet);
         viewPetBtn.setOnClickListener(new View.OnClickListener() {

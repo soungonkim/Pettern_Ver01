@@ -65,9 +65,10 @@ public class UserProfile extends AppCompatActivity {
     private String userMonth;
     private String userDay;
 
-    private Button updateButton;
+    private Button doneButton;
     private int success;
     private ProgressDialog pDialog;
+    int isAdd = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,20 +83,22 @@ public class UserProfile extends AppCompatActivity {
         userYearEditText = (EditText) findViewById(R.id.txtUserYearAdd);
         userMonthEditText = (EditText) findViewById(R.id.txtUserMonthAdd);
         userDayEditText = (EditText) findViewById(R.id.txtUserDayAdd);
-
         userId = intent.getStringExtra(KEY_USER_ID);
         new FetchUserDetailsAsyncTask().execute();
+        doneButton = (Button) findViewById(R.id.btnUserAdd);
 
-        updateButton = (Button) findViewById(R.id.btnUpdate);
-        updateButton.setOnClickListener(new View.OnClickListener() {
+        //if (userNameEditText.getText().toString().matches("")) {isAdd = 1;}
+        //  System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  " + isAdd);
+
+        doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (CheckNetworkStatus.isNetworkAvailable(getApplicationContext())) {
-                    if (userNameEditText.getText().toString().matches(""))
+                    if (isAdd == 1) {
                         addUser();
-                    else
+                    } else if (isAdd == 0) {
                         updateUser();
-
+                    }
                 } else {
                     Toast.makeText(UserProfile.this,
                             "Unable to connect to internet",
@@ -353,6 +356,7 @@ public class UserProfile extends AppCompatActivity {
                         //Display success message
                         Toast.makeText(UserProfile.this,
                                 "User Added", Toast.LENGTH_LONG).show();
+                        isAdd = 0;
                         Intent i = new Intent(UserProfile.this, TabActivity.class);
                         //send result code 20 to notify about user update
                         setResult(20, i);

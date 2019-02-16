@@ -9,6 +9,8 @@ import java.util.Date;
 
 public class SessionHandler {
     private static final String PREF_NAME = "UserSession";
+    private static final String KEY_USERID= "user_id";
+
     private static final String KEY_USERNAME = "username";
     private static final String KEY_EXPIRES = "expires";
     private static final String KEY_FULL_NAME = "full_name";
@@ -75,6 +77,7 @@ public class SessionHandler {
             return null;
         }
         User user = new User();
+        user.setUser_Id(mPreferences.getString(KEY_USERID, KEY_EMPTY));
         user.setUsername(mPreferences.getString(KEY_USERNAME, KEY_EMPTY));
         user.setFullName(mPreferences.getString(KEY_FULL_NAME, KEY_EMPTY));
         user.setSessionExpiryDate(new Date(mPreferences.getLong(KEY_EXPIRES, 0)));
