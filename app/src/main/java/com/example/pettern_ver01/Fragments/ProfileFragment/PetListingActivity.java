@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.se.omapi.Session;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,8 +14,10 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.pettern_ver01.LoginRegister.SessionHandler;
 import com.example.pettern_ver01.R;
 import com.example.pettern_ver01.TabActivity;
+import com.example.pettern_ver01.User;
 import com.example.pettern_ver01.helper.CheckNetworkStatus;
 import com.example.pettern_ver01.helper.HttpJsonParser;
 
@@ -26,10 +29,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class PetListingActivity extends AppCompatActivity {
+
+    private SessionHandler session;
     private static final String KEY_SUCCESS = "success";
     private static final String KEY_DATA = "data";
     private static final String KEY_PET_ID = "pet_id";
     private static final String KEY_PET_NAME = "pet_name";
+    private static final String KEY_USER_EMAIL = "user_email";
 
 
     private static final String BASE_URL = "http://211.206.115.80/apptest1/pet/";
@@ -63,7 +69,6 @@ public class PetListingActivity extends AppCompatActivity {
             //Display progress bar
             pDialog = new ProgressDialog(PetListingActivity.this);
             pDialog.setMessage("Loading pets. Please wait...");
-            System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%DIALOG");
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(false);
             pDialog.show();
@@ -71,13 +76,12 @@ public class PetListingActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... params) {
-            System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%in doInBackground");
             HttpJsonParser httpJsonParser = new HttpJsonParser();
-            System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%httpjsonparser Object made");
+            session = new SessionHandler(getApplicationContext());
+            User user = session.getUserDetails();
 
             JSONObject jsonObject = httpJsonParser.makeHttpRequest(
                     BASE_URL + "pet_fetch_all.php", "GET", null);
-            System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%Json Object made");
 
             try {
                 int success = jsonObject.getInt(KEY_SUCCESS);
@@ -85,21 +89,23 @@ public class PetListingActivity extends AppCompatActivity {
                 if (success == 1) {
                     petList = new ArrayList<>();
                     pets = jsonObject.getJSONArray(KEY_DATA);
-                    System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%pets Object made");
                     //Iterate through the response and populate pets list
+                    //Check Email
                     for (int i = 0; i < pets.length(); i++) {
-                        JSONObject pet = pets.getJSONObject(i);
-                        System.out.println(pet);
-                        Integer petId = pet.getInt(KEY_PET_ID);
-                        String petName = pet.getString(KEY_PET_NAME);
-                        HashMap<String, String> map = new HashMap<String, String>();
-                        map.put(KEY_PET_ID, petId.toString());
-                        map.put(KEY_PET_NAME, petName);
-                        petList.add(map);
+                        System.out.println("$$$$$$$$$$$$$$$$$$$$$ user email:" + user.getUsername());
+                        System.out.println("~~~~~~~~~~~~~~~~~~~~~~ master email:" + pets.getJSONObject(i).getString(KEY_USER_EMAIL));
+                        if(user.getUsername().equals(pets.getJSONObject(i).getString(KEY_USER_EMAIL))) {
+                            JSONObject pet = pets.getJSONObject(i);
+                            Integer petId = pet.getInt(KEY_PET_ID);
+                            String petName = pet.getString(KEY_PET_NAME);
+                            HashMap<String, String> map = new HashMap<String, String>();
+                            map.put(KEY_PET_ID, petId.toString());
+                            map.put(KEY_PET_NAME, petName);
+                            petList.add(map);
+                        }
                     }
                 }
             } catch (JSONException e) {
-                System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%Error made");
                 e.printStackTrace();
             }
             return null;

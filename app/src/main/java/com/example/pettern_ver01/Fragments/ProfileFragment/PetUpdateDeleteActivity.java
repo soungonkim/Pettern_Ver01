@@ -42,7 +42,7 @@ public class PetUpdateDeleteActivity extends AppCompatActivity {
     private static final String KEY_PET_AGE = "pet_age";
     private static final String KEY_PET_WEIGHT = "pet_weight";
 
-    private static final String BASE_URL = "http://211.206.115.80/apptest1/pet";
+    private static final String BASE_URL = "http://211.206.115.80/apptest1/pet/";
 
     private String petId;
     private EditText petNameEditText;
@@ -259,7 +259,6 @@ public class PetUpdateDeleteActivity extends AppCompatActivity {
                 !STRING_EMPTY.equals(petGenderEditText.getText().toString()) &&
                 !STRING_EMPTY.equals(petAgeEditText.getText().toString()) &&
                 !STRING_EMPTY.equals(petWeightEditText.getText().toString())) {
-
             petName = petNameEditText.getText().toString();
             petChar = petCharEditText.getText().toString();
             petBreed = petBreedEditText.getText().toString();
@@ -301,6 +300,7 @@ public class PetUpdateDeleteActivity extends AppCompatActivity {
             Map<String, String> httpParams = new HashMap<>();
             //Populating request parameters
 
+            httpParams.put(KEY_PET_ID, petId);
             httpParams.put(KEY_USER_EMAIL, user.getUsername());
             httpParams.put(KEY_PET_NAME, petName);
             httpParams.put(KEY_PET_CHAR, petChar);
@@ -308,6 +308,7 @@ public class PetUpdateDeleteActivity extends AppCompatActivity {
             httpParams.put(KEY_PET_GENDER, petGender);
             httpParams.put(KEY_PET_AGE, petAge);
             httpParams.put(KEY_PET_WEIGHT, petWeight);
+
             JSONObject jsonObject = httpJsonParser.makeHttpRequest(
                     BASE_URL + "pet_update.php", "POST", httpParams);
             try {

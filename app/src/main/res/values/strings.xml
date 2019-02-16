@@ -27,6 +27,17 @@
     <string name="petAge">Pet Age</string>
     <string name="petWeight">Pet Weight</string>
 
+    <string name="userName">Your Name</string>
+    <string name="userGender">Your Gender</string>
+    <string name="userAddress">Your Address</string>
+    <string name="userJob">Your Job</string>
+    <string name="userSpent">Pet Hours</string>
+    <string name="userYear">Birth Year</string>
+    <string name="userMonth">Birth Month</string>
+    <string name="userDay">Birth Day</string>
+    <string name="done">DONE</string>
+
+
     <string name="update">Update</string>
     <string name="delete">Delete</string>
     <string name="add">Add</string>

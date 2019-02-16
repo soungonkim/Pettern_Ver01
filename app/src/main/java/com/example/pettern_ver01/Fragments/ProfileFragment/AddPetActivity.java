@@ -177,17 +177,16 @@ public class AddPetActivity extends AppCompatActivity {
                         //Display success message
                         Toast.makeText(AddPetActivity.this,
                                 "Pet Added", Toast.LENGTH_LONG).show();
-                        Intent i = getIntent();
+                        Intent i = new Intent(AddPetActivity.this, TabActivity.class);
                         //send result code 20 to notify about pet update
                         setResult(20, i);
                         //Finish ths activity and go back to listing activity
-                        finish();
+                        startActivity(i);
 
                     } else {
                         Toast.makeText(AddPetActivity.this,
                                 "Some error occurred while adding pet",
                                 Toast.LENGTH_LONG).show();
-
                     }
                 }
             });
