@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pettern_ver01.R;
+import com.example.pettern_ver01.TabActivity;
 import com.example.pettern_ver01.helper.CheckNetworkStatus;
 import com.example.pettern_ver01.helper.HttpJsonParser;
 
@@ -31,7 +32,7 @@ public class PetListingActivity extends AppCompatActivity {
     private static final String KEY_PET_NAME = "pet_name";
 
 
-    private static final String BASE_URL = "http://211.206.115.80/apptest1/pet";
+    private static final String BASE_URL = "http://211.206.115.80/apptest1/pet/";
     private ArrayList<HashMap<String, String>> petList;
     private ListView petListView;
     private ProgressDialog pDialog;
@@ -43,6 +44,13 @@ public class PetListingActivity extends AppCompatActivity {
         petListView = (ListView) findViewById(R.id.petList);
         new FetchPetsAsyncTask().execute();
 
+    }
+
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        Intent intent = new Intent(PetListingActivity.this, TabActivity.class);
+        startActivity(intent);
     }
 
     /**

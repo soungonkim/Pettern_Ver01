@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.pettern_ver01.LoginRegister.SessionHandler;
+import com.example.pettern_ver01.TabActivity;
 import com.example.pettern_ver01.User;
 import com.example.pettern_ver01.helper.CheckNetworkStatus;
 import com.example.pettern_ver01.R;
@@ -33,7 +35,7 @@ public class AddPetActivity extends AppCompatActivity {
     private static final String KEY_PET_AGE = "pet_age";
     private static final String KEY_PET_WEIGHT = "pet_weight";
 
-    private static final String BASE_URL = "http://211.206.115.80/apptest1/pet";
+    private static final String BASE_URL = "http://211.206.115.80/apptest1/pet/";
     private static String STRING_EMPTY = "";
     private EditText petNameEditText;
     private EditText petCharEditText;
@@ -82,6 +84,15 @@ public class AddPetActivity extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        Intent intent = new Intent(AddPetActivity.this, TabActivity.class);
+        startActivity(intent);
+    }
+
+
 
     /**
      * Checks whether all files are filled. If so then calls AddPetAsyncTask.
@@ -132,6 +143,7 @@ public class AddPetActivity extends AppCompatActivity {
             System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%httpjsonparser Object made");
             session = new SessionHandler(getApplicationContext());
             User user = session.getUserDetails();
+            System.out.println(user.getUsername());
 
             Map<String, String> httpParams = new HashMap<>();
             //Populating request parameters

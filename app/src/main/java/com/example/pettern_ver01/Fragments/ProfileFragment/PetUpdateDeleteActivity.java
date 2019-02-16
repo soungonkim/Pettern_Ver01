@@ -14,6 +14,7 @@ import android.app.AlertDialog;
 
 import com.example.pettern_ver01.LoginRegister.SessionHandler;
 import com.example.pettern_ver01.R;
+import com.example.pettern_ver01.TabActivity;
 import com.example.pettern_ver01.User;
 import com.example.pettern_ver01.helper.CheckNetworkStatus;
 import com.example.pettern_ver01.helper.HttpJsonParser;
@@ -98,6 +99,13 @@ public class PetUpdateDeleteActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        Intent intent = new Intent(PetUpdateDeleteActivity.this, PetListingActivity.class);
+        startActivity(intent);
     }
 
     /**
