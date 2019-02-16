@@ -53,7 +53,7 @@ public class PetListingActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
         super.onBackPressed();
         Intent intent = new Intent(PetListingActivity.this, TabActivity.class);
         startActivity(intent);
@@ -94,7 +94,7 @@ public class PetListingActivity extends AppCompatActivity {
                     for (int i = 0; i < pets.length(); i++) {
                         System.out.println("$$$$$$$$$$$$$$$$$$$$$ user email:" + user.getUsername());
                         System.out.println("~~~~~~~~~~~~~~~~~~~~~~ master email:" + pets.getJSONObject(i).getString(KEY_USER_EMAIL));
-                        if(user.getUsername().equals(pets.getJSONObject(i).getString(KEY_USER_EMAIL))) {
+                        if (user.getUsername().equals(pets.getJSONObject(i).getString(KEY_USER_EMAIL))) {
                             JSONObject pet = pets.getJSONObject(i);
                             Integer petId = pet.getInt(KEY_PET_ID);
                             String petName = pet.getString(KEY_PET_NAME);

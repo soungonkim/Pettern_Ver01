@@ -51,9 +51,9 @@ public class ProfileFragment extends Fragment {
         });
 
         Button viewPetBtn = view.findViewById(R.id.btnViewPet);
-        viewPetBtn.setOnClickListener(new View.OnClickListener(){
+        viewPetBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 Intent i = new Intent(getActivity(), PetListingActivity.class);
                 startActivity(i);
                 getActivity().finish();
@@ -61,16 +61,14 @@ public class ProfileFragment extends Fragment {
         });
 
         Button addPetBtn = view.findViewById(R.id.btnAddPet);
-        addPetBtn.setOnClickListener(new View.OnClickListener(){
+        addPetBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 Intent i = new Intent(getActivity(), AddPetActivity.class);
                 startActivity(i);
                 getActivity().finish();
             }
         });
-
-
 
 
         return view;

@@ -17,6 +17,7 @@ import com.example.pettern_ver01.User;
 import com.example.pettern_ver01.helper.CheckNetworkStatus;
 import com.example.pettern_ver01.R;
 import com.example.pettern_ver01.helper.HttpJsonParser;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -86,12 +87,11 @@ public class AddPetActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
         super.onBackPressed();
         Intent intent = new Intent(AddPetActivity.this, TabActivity.class);
         startActivity(intent);
     }
-
 
 
     /**
@@ -102,8 +102,8 @@ public class AddPetActivity extends AppCompatActivity {
         if (!STRING_EMPTY.equals(petNameEditText.getText().toString()) &&
                 !STRING_EMPTY.equals(petCharEditText.getText().toString()) &&
                 !STRING_EMPTY.equals(petBreedEditText.getText().toString()) &&
-                !STRING_EMPTY.equals(petGenderEditText.getText().toString())&&
-                !STRING_EMPTY.equals(petAgeEditText.getText().toString())&&
+                !STRING_EMPTY.equals(petGenderEditText.getText().toString()) &&
+                !STRING_EMPTY.equals(petAgeEditText.getText().toString()) &&
                 !STRING_EMPTY.equals(petWeightEditText.getText().toString())) {
 
             petName = petNameEditText.getText().toString();

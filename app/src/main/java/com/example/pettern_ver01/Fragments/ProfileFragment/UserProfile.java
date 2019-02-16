@@ -106,7 +106,7 @@ public class UserProfile extends AppCompatActivity {
     }
 
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
         super.onBackPressed();
         Intent intent = new Intent(UserProfile.this, TabActivity.class);
         startActivity(intent);
@@ -185,8 +185,8 @@ public class UserProfile extends AppCompatActivity {
                 !STRING_EMPTY.equals(userAddressEditText.getText().toString()) &&
                 !STRING_EMPTY.equals(userJobEditText.getText().toString()) &&
                 !STRING_EMPTY.equals(userSpentEditText.getText().toString()) &&
-                !STRING_EMPTY.equals(userYearEditText.getText().toString())&&
-                !STRING_EMPTY.equals(userMonthEditText.getText().toString())&&
+                !STRING_EMPTY.equals(userYearEditText.getText().toString()) &&
+                !STRING_EMPTY.equals(userMonthEditText.getText().toString()) &&
                 !STRING_EMPTY.equals(userDayEditText.getText().toString())) {
             userName = userNameEditText.getText().toString();
             userGender = userGenderEditText.getText().toString();
@@ -282,8 +282,8 @@ public class UserProfile extends AppCompatActivity {
                 !STRING_EMPTY.equals(userAddressEditText.getText().toString()) &&
                 !STRING_EMPTY.equals(userJobEditText.getText().toString()) &&
                 !STRING_EMPTY.equals(userSpentEditText.getText().toString()) &&
-                !STRING_EMPTY.equals(userYearEditText.getText().toString())&&
-                !STRING_EMPTY.equals(userMonthEditText.getText().toString())&&
+                !STRING_EMPTY.equals(userYearEditText.getText().toString()) &&
+                !STRING_EMPTY.equals(userMonthEditText.getText().toString()) &&
                 !STRING_EMPTY.equals(userDayEditText.getText().toString())) {
             userName = userNameEditText.getText().toString();
             userGender = userGenderEditText.getText().toString();
@@ -368,12 +368,6 @@ public class UserProfile extends AppCompatActivity {
             });
         }
     }
-
-
-
-
-
-
 
 
 }
