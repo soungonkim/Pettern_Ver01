@@ -44,7 +44,7 @@ public class UserProfile extends AppCompatActivity {
     private static final String KEY_USER_YEAR = "user_year";
     private static final String KEY_USER_MONTH = "user_month";
     private static final String KEY_USER_DAY = "user_day";
-    private static final String BASE_URL = "http://211.206.115.80/apptest1/user/";
+    private static final String BASE_URL = "http://101.101.163.224/apptest1/user/";
 
     private String userId;
     private EditText userNameEditText;

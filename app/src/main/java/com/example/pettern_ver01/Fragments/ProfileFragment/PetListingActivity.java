@@ -38,7 +38,7 @@ public class PetListingActivity extends AppCompatActivity {
     private static final String KEY_USER_EMAIL = "user_email";
 
 
-    private static final String BASE_URL = "http://211.206.115.80/apptest1/pet/";
+    private static final String BASE_URL = "http://101.101.163.224/apptest1/pet/";
     private ArrayList<HashMap<String, String>> petList;
     private ListView petListView;
     private ProgressDialog pDialog;

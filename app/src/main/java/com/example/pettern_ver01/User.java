@@ -9,9 +9,9 @@ public class User {
     String fullName;
     Date sessionExpiryDate;
 
-    public void setUser_Id(String user_id) {
-        this.user_id = user_id;
-    }
+   // public void setUser_Id(String user_id) {
+ //       this.user_id = user_id;
+  //  }
 
 
     public void setUsername(String username) {
@@ -26,9 +26,9 @@ public class User {
         this.sessionExpiryDate = sessionExpiryDate;
     }
 
-    public String getUser_Id() {
-        return user_id;
-    }
+   // public String getUser_Id() {
+   //     return user_id;
+   // }
 
     public String getUsername() {
         return username;
