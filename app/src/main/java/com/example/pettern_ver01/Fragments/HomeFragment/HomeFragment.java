@@ -1,6 +1,7 @@
 package com.example.pettern_ver01.Fragments.HomeFragment;
 
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.Gravity;
@@ -10,10 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.example.pettern_ver01.LoginRegister.SessionHandler;
-import com.example.pettern_ver01.User;
+
 import com.example.pettern_ver01.helper.HttpJsonParser;
-import com.example.pettern_ver01.helper.CheckNetworkStatus;
 
 import com.example.pettern_ver01.R;
 
@@ -26,9 +25,18 @@ import java.util.Map;
 public class HomeFragment extends Fragment {
     private static final String BASE_URL = "http://101.101.163.224/";
     private static final String KEY_CMD = "t";
+
     private String cold = "cold_cmd";
     private String stop = "stop_cmd";
     private String hot = "hot_cmd";
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -77,6 +85,7 @@ public class HomeFragment extends Fragment {
         Map<String, String> httpParams = new HashMap<>();
         //Populating request parameters
         httpParams.put(KEY_CMD, cold);
+        System.out.println(httpParams);
         httpJsonParser.makeHttpRequest(BASE_URL + "cmd.php", "GET", httpParams);
     }
     void StopMode(){
