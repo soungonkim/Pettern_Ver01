@@ -25,10 +25,14 @@ import java.util.Map;
 public class HomeFragment extends Fragment {
     private static final String BASE_URL = "http://101.101.163.224/";
     private static final String KEY_CMD = "t";
+    private static final String KEY_SUCCESS = "success";
 
     private String cold = "cold_cmd";
     private String stop = "stop_cmd";
     private String hot = "hot_cmd";
+
+    private int success;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -86,21 +90,42 @@ public class HomeFragment extends Fragment {
         //Populating request parameters
         httpParams.put(KEY_CMD, cold);
         System.out.println(httpParams);
-        httpJsonParser.makeHttpRequest(BASE_URL + "cmd.php", "GET", httpParams);
+        JSONObject jsonObject = httpJsonParser.makeHttpRequest(BASE_URL + "cmd.php", "GET", httpParams);
+        /*try {
+            System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%Json Object made");
+            success = jsonObject.getInt(KEY_SUCCESS);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }*/
     }
     void StopMode(){
         HttpJsonParser httpJsonParser = new HttpJsonParser();
         Map<String, String> httpParams = new HashMap<>();
         //Populating request parameters
         httpParams.put(KEY_CMD, stop);
-        httpJsonParser.makeHttpRequest(BASE_URL + "cmd.php", "GET", httpParams);
+        JSONObject jsonObject = httpJsonParser.makeHttpRequest(BASE_URL + "cmd.php", "GET", httpParams);
+       /* try {
+            System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%Json Object made");
+            success = jsonObject.getInt(KEY_SUCCESS);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }*/
     }
     void HotMode(){
         HttpJsonParser httpJsonParser = new HttpJsonParser();
         Map<String, String> httpParams = new HashMap<>();
         //Populating request parameters
         httpParams.put(KEY_CMD, hot);
-        httpJsonParser.makeHttpRequest(BASE_URL + "cmd.php", "GET", httpParams);
+        JSONObject jsonObject = httpJsonParser.makeHttpRequest(BASE_URL + "cmd.php", "GET", httpParams);
+        /*try {
+            System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%Json Object made");
+            success = jsonObject.getInt(KEY_SUCCESS);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }*/
     }
 
 }
