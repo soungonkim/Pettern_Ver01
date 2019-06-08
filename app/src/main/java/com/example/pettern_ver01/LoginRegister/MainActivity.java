@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private String username;
     private String password;
     private ProgressDialog pDialog;
-    private String login_url = "http://101.101.163.224/apptest1/login/login.php";
+    private String login_url = "http://45.119.146.131/SERVER/login/login.php";
     private SessionHandler session;
 
     @Override

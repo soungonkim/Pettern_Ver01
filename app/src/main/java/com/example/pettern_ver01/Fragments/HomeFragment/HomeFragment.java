@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class HomeFragment extends Fragment {
-    private static final String BASE_URL = "http://101.101.163.224/";
+    private static final String BASE_URL = "http://45.119.146.131/SERVER/";
     private static final String KEY_CMD = "t";
     private static final String KEY_SUCCESS = "success";
 
